@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Řešené příklady</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="Resene_priklady.css" />
+  </head>
+  <head> </head>
+
+  <body>
+        <div class="sticky-top" > 
+<nav class="navbar navbar-expand-sm " data-aos="fade-down" data-aos-duration="3000" data-aos-offset="500">
+
+  <div class="container-fluid " style="background-color:#329ad6; font-size: 22px;"> 
+   <button class="navbar-toggler w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon "  ></span>
+    </button>
+ 
+   
+   
+    <div class="collapse navbar-collapse navigace" id="collapsibleNavbar">    <div class="ms-auto">
+    <ul class="navbar-nav ">
+      
+    
+      <li class="nav-item ">
+        <a class="nav-link px-5" href="../vysvetleni.html" style="color: rgb(235, 245, 247);">Teorie</a>
+      </li>
+
+      <li class="nav-item "> 
+        <a class="nav-link ps-5" href="Teorie_test.html" style="color: rgb(235, 245, 247);">Test na teorii</a>
+      </li>
+
+      <li class="nav-item ">
+        <a class="nav-link px-5" href="../index.html" style="color: rgb(235, 245, 247);">Zpět na úvod</a>
+      </li> 
+   
+       <li class="nav-item "> 
+        <a class="nav-link ps-5" href="Test.html" style="color: rgb(235, 245, 247);">Zkušební test</a>
+      </li>
+    
+      </div>
+    
+    <div class="ms-auto ">
+  
+    </ul></div></div>
+
+
+</nav>
+</div> 
+    <main class="flex-fill">
+      <div class="container d-flex justify-content-center">
+        <div class="quiz-card">
+          <div class="question" id="question"></div>
+          <div class="d-flex justify-content-between align-items-center w-100">
+            <input
+              type="text"
+              class="form-control"
+              id="answer"
+              placeholder="Zadej odpověď"
+            />
+            <button id="sendBtn" type="button" class="btn">ZKONTROLOVAT</button>
+          </div>
+          <div id="solution" class="solution"></div>
+          <div class="d-flex justify-content-end mt-3">
+            <button id="nextBtn" type="button" class="btn">
+              DALŠÍ <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container-fluid">
+        <div class="row text-center pt-2 pb-3">
+          <div class="col-lg-4 pt-3">
+            <a href="https://www.instagram.com/oavalmez/" target="_blank">
+              <i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="https://soundcloud.com/obchodn-akademie-a-vo"
+              target="_blank"
+            >
+              <i class="fa-brands fa-soundcloud px-3"></i
+            ></a>
+            <a href="https://miro.com/online-whiteboard/" target="_blank">
+              <i class="fa-solid fa-chalkboard"></i
+            ></a>
+          </div>
+          <div class="col-lg-4 py-3">
+            <a href="https://www.oavm.cz/" target="_blank"
+              ><img src="oavm-logo-red_blue.svg" alt="" class="img-fluid"
+            /></a>
+            <p class="pt-3">J&J &copy; 2025, všechna práva vyhrazena</p>
+          </div>
+          <div class="col-lg-4">
+            <a href="#">Zpět nahoru</a><br/><a href="../vysvetleni.html"
+              >Teorie</a
+            ><br /><a href="../index.html">Hlavní Stránka</a><br /><a href="Test.html"
+              >Zkušební Test</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const quizData = [
+        {
+          question: "Vypočítej log₂(4)",
+          correct: 2,
+          solution: "4 = 2², takže log₂(4) = 2.",
+        },
+        {
+          question: "Vypočítej log₃(9)",
+          correct: 2,
+          solution: "9 = 3², takže log₃(9) = 2.",
+        },
+        {
+          question: "Vypočítej log₅(25)",
+          correct: 2,
+          solution: "25 = 5², takže log₅(25) = 2.",
+        },
+
+        {
+          question: "Vypočítej log₁₀(1000)",
+          correct: 3,
+          solution: "1000 = 10³, takže log₁₀(1000) = 3.",
+        },
+        {
+          question: "Vypočítej log₂(16)",
+          correct: 4,
+          solution: "16 = 2⁴, takže log₂(16) = 4.",
+        },
+        {
+          question: "Vypočítej log₄(64)",
+          correct: 3,
+          solution: "64 = 4³, takže log₄(64) = 3.",
+        },
+        {
+          question: "Vypočítej log₁₀(1)",
+          correct: 0,
+          solution: "1 = 10⁰, takže log₁₀(1) = 0.",
+        },
+        {
+          question: "Vypočítej log₂(32)",
+          correct: 5,
+          solution: "32 = 2⁵, takže log₂(32) = 5.",
+        },
+        {
+          question: "Vypočítej log₃(27)",
+          correct: 3,
+          solution: "27 = 3³, takže log₃(27) = 3.",
+        },
+        {
+          question: "Vypočítej log₅(125)",
+          correct: 3,
+          solution: "125 = 5³, takže log₅(125) = 3.",
+        },
+        {
+          question: "Vypočítej log₆(36)",
+          correct: 2,
+          solution: "36 = 6², takže log₆(36) = 2.",
+        },
+        {
+          question: "Vypočítej log₇(49)",
+          correct: 2,
+          solution: "49 = 7², takže log₇(49) = 2.",
+        },
+        {
+          question: "Vypočítej log₂(1)",
+          correct: 0,
+          solution: "1 = 2⁰, takže log₂(1) = 0.",
+        },
+        {
+          question: "Vypočítej log₃(81)",
+          correct: 4,
+          solution: "81 = 3⁴, takže log₃(81) = 4.",
+        },
+        {
+          question: "Vypočítej log₁₀(100)",
+          correct: 2,
+          solution: "100 = 10², takže log₁₀(100) = 2.",
+        },
+        {
+          question: "Vypočítej log₂(8)",
+          correct: 3,
+          solution: "8 = 2³, takže log₂(8) = 3.",
+        },
+        {
+          question: "Vypočítej log₉(81)",
+          correct: 2,
+          solution: "81 = 9², takže log₉(81) = 2.",
+        },
+        {
+          question: "Vypočítej log₂(64)",
+          correct: 6,
+          solution: "64 = 2⁶, takže log₂(64) = 6.",
+        },
+        {
+          question: "Vypočítej log₁₀(10000)",
+          correct: 4,
+          solution: "10000 = 10⁴, takže log₁₀(10000) = 4.",
+        },
+        {
+          question: "Vypočítej log₃(9) + log₃(3)",
+          correct: 3,
+          solution: "log₃(9)=2 a log₃(3)=1 → 2+1=3.",
+        },
+        {
+          question: "Vypočítej log₂(4) + log₂(8)",
+          correct: 5,
+          solution: "log₂(4)=2 a log₂(8)=3 → 2+3=5.",
+        },
+        {
+          question: "Vypočítej log₅(25) + log₅(5)",
+          correct: 3,
+          solution: "log₅(25)=2 a log₅(5)=1 → 2+1=3.",
+        },
+        {
+          question: "Vypočítej log₂(16) − log₂(2)",
+          correct: 3,
+          solution: "log₂(16)=4 a log₂(2)=1 → 4−1=3.",
+        },
+        {
+          question: "Vypočítej log₃(27) − log₃(3)",
+          correct: 2,
+          solution: "log₃(27)=3 a log₃(3)=1 → 3−1=2.",
+        },
+        {
+          question: "Vypočítej log₄(64) + log₄(4)",
+          correct: 4,
+          solution: "log₄(64)=3 a log₄(4)=1 → 3+1=4.",
+        },
+
+        {
+          question: "Vypočítej log₆(36)",
+          correct: 2,
+          solution: "36 = 6², takže log₆(36) = 2.",
+        },
+        {
+          question: "Vypočítej log₇(49)",
+          correct: 2,
+          solution: "49 = 7², takže log₇(49) = 2.",
+        },
+        {
+          question: "Vypočítej log₂(1)",
+          correct: 0,
+          solution: "1 = 2⁰, takže log₂(1) = 0.",
+        },
+        {
+          question: "Vypočítej log₃(81)",
+          correct: 4,
+          solution: "81 = 3⁴, takže log₃(81) = 4.",
+        },
+        {
+          question: "Vypočítej log₁₀(100)",
+          correct: 2,
+          solution: "100 = 10², takže log₁₀(100) = 2.",
+        },
+        {
+          question: "Vypočítej log₂(8)",
+          correct: 3,
+          solution: "8 = 2³, takže log₂(8) = 3.",
+        },
+        {
+          question: "Vypočítej log₉(81)",
+          correct: 2,
+          solution: "81 = 9², takže log₉(81) = 2.",
+        },
+        {
+          question: "Vypočítej log₂(64)",
+          correct: 6,
+          solution: "64 = 2⁶, takže log₂(64) = 6.",
+        },
+        {
+          question: "Vypočítej log₁₀(10000)",
+          correct: 4,
+          solution: "10000 = 10⁴, takže log₁₀(10000) = 4.",
+        },
+ 
+        {
+          question: "Vyřeš rovnici: log₂(x) = 3",
+          correct: 8,
+          solution: "2³ = 8, takže x = 8.",
+        },
+        {
+          question: "Vyřeš rovnici: log₃(x) = 4",
+          correct: 81,
+          solution: "3⁴ = 81, takže x = 81.",
+        },
+        {
+          question: "Vyřeš rovnici: log₅(x) = 1",
+          correct: 5,
+          solution: "5¹ = 5, takže x = 5.",
+        },
+        {
+          question: "Vyřeš rovnici: log₄(x) = 2",
+          correct: 16,
+          solution: "4² = 16, takže x = 16.",
+        },
+        {
+          question: "Vyřeš log₂(2x − 4) = 3",
+          correct: 6,
+          solution:
+            "Rovnici přepíšeme do exponenciální formy: 2x − 4 = 2³ = 8. Po sečtení dostaneme 2x = 12 a vydělením 2 získáme x = 6.",
+        },
+ 
+        {
+          question: "Vyřeš log₅(x + 4) = 2",
+          correct: 21,
+          solution:
+            "Logaritmus znamená: x + 4 = 5² = 25. Odečtením 4 získáme x = 21, což splňuje podmínku x + 4 > 0.",
+        },
+ 
+        {
+          question: "Vyřeš log(x) + log(x − 2) = log 15",
+          correct: 5,
+          solution:
+            "Sečteme logaritmy: log[x(x − 2)] = log 15 → tedy x(x − 2) = 15. Kvadratická rovnice dává kořeny 5 a −3, ale platí jen x > 2, takže x = 5.",
+        },
+ 
+        {
+          question: "Vyřeš log₃(x − 1) = 2",
+          correct: 10,
+          solution:
+            "Převedeme logaritmus: x − 1 = 3² = 9. Přičtením 1 dostaneme x = 10, což vyhovuje podmínce x − 1 > 0.",
+        },
+ 
+        {
+          question: "Vyřeš log₄(x) + log₄(x − 3) = 1",
+          correct: 4,
+          solution:
+            "Sjednotíme logaritmy: log₄[x(x − 3)] = 1, tedy x(x − 3) = 4¹ = 4. Řešení jsou 4 a −1, ale logaritmus vyžaduje x > 3 → správné x = 4.",
+        },
+ 
+        {
+          question: "Vyřeš log₂(x + 1) − log₂(x − 1) = 1",
+          correct: 3,
+          solution:
+            "Použijeme rozdíl logaritmů: log₂[(x+1)/(x−1)] = 1 → (x+1)/(x−1) = 2¹ = 2. Rovnice dá x = 3, které splňuje podmínku x − 1 > 0.",
+        },
+ 
+        {
+          question: "Vyřeš log₉(x) = 1/2",
+          correct: 3,
+          solution:
+            "Převedeme logaritmus: x = 9^(1/2). Druhá odmocnina z 9 je 3, takže x = 3.",
+        },
+ 
+        {
+          question: "Vyřeš log(x + 9) = 2",
+          correct: 91,
+          solution:
+            "Převod: x + 9 = 10² = 100. Odečtením 9 dostáváme x = 91, což splňuje podmínku x + 9 > 0.",
+        },
+ 
+        {
+          question: "Vyřeš log(x − 1) + log(x − 5) = log 12",
+          correct: 7,
+          solution:
+            "Spojíme logaritmy: log[(x−1)(x−5)] = log 12 → (x−1)(x−5) = 12. Kvadratická rovnice dává kořeny 7 a −1, ale platí podmínky x>5, takže x = 7.",
+        },
+        {
+          question: "Vyřeš log₁₀(x + 1) = log₁₀(9)",
+          correct: 8,
+          solution:
+            "Stejný základ logaritmů → argumenty se rovnají: x + 1 = 9. Odečteme 1 → x = 8.",
+        },
+ 
+        {
+          question: "Vyřeš log₂(x − 3) = log₂(5)",
+          correct: 8,
+          solution: "Stejný základ → x − 3 = 5. Po úpravě dostáváme x = 8.",
+        },
+ 
+        {
+          question: "Vyřeš log₅(x + 4) = log₅(29)",
+          correct: 25,
+          solution: "Argumenty se musí rovnat: x + 4 = 29. Řešením je x = 25.",
+        },
+ 
+        {
+          question: "Vyřeš 2·log₁₀(x) = log₁₀(100)",
+          correct: 10,
+          solution:
+            "2·log(x) = log(x²), tedy log(x²) = 2. Z toho x² = 100 → x = 10 (kladná podmínka).",
+        },
+ 
+        {
+          question: "Vyřeš 3·log₁₀(x) = log₁₀(1000)",
+          correct: 10,
+          solution:
+            "3·log(x) = log(x³). Dostáváme log(x³) = 3 → x³ = 1000 → x = 10.",
+        },
+ 
+        {
+          question: "Vyřeš log₃(2x − 1) = log₃(x + 8)",
+          correct: 9,
+          solution:
+            "Porovnáme argumenty: 2x − 1 = x + 8. Upravením dostaneme x = 9.",
+        }
+      ];
+
+      function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      let questionOrder = shuffle([...Array(quizData.length).keys()]);
+      let currentQuestion = 0;
+      let score = 0;
+
+      const questionEl = document.getElementById("question");
+      const answerEl = document.getElementById("answer");
+      const sendBtn = document.getElementById("sendBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const solutionEl = document.getElementById("solution");
+
+      function loadQuestion() {
+        const data = quizData[questionOrder[currentQuestion]];
+        questionEl.textContent = data.question;
+
+        answerEl.value = "";
+        answerEl.disabled = false;
+
+        solutionEl.style.display = "none";
+        solutionEl.className = "solution";
+        solutionEl.classList.remove("show");
+
+        nextBtn.style.display = "none";
+      }
+
+      function checkAnswer() {
+        const stringValue = answerEl.value;
+        const userValue = Number(stringValue);
+        const correct = quizData[questionOrder[currentQuestion]].correct;
+        const explanation = quizData[questionOrder[currentQuestion]].solution;
+
+        if (stringValue === "") {
+          answerEl.value = "";
+          answerEl.placeholder = "Zadejte hodnotu!!";
+          answerEl.style.fontWeight = "bold";
+
+          return;
+        }
+        answerEl.placeholder = "Zadej odpověď";
+        answerEl.style.fontWeight = "normal";
+
+        answerEl.disabled = true;
+
+        solutionEl.style.display = "block";
+
+        if (userValue === correct) {
+          solutionEl.classList.add("correct");
+          solutionEl.textContent = "Správně! " + explanation;
+          score++;
+        } else {
+          solutionEl.classList.add("wrong");
+          solutionEl.textContent =
+            "Špatně: Správná odpověď: " + correct + ". " + explanation;
+        }
+        setTimeout(() => {
+          solutionEl.classList.add("show");
+        }, 1);
+
+        nextBtn.style.display = "block";
+      }
+      function nextQuestion() {
+        currentQuestion++;
+
+        if (currentQuestion < quizData.length) {
+          loadQuestion();
+        } else {
+          showFinalScore();
+        }
+      }
+      function showFinalScore() {
+        questionEl.textContent =
+          "Hotovo! 🎉 Tvé skóre: " + score + " / " + quizData.length;
+
+        answerEl.style.display = "none";
+        sendBtn.style.display = "none";
+        nextBtn.style.display = "none";
+        solutionEl.style.display = "none";
+      }
+
+      sendBtn.addEventListener("click", checkAnswer);
+      nextBtn.addEventListener("click", nextQuestion);
+
+      loadQuestion();
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/abc123xyz.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
