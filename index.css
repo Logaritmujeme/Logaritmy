@@ -11,7 +11,7 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size:cover;
-    background-position:unset;
+    background-position:center;
     
     
 
@@ -52,6 +52,10 @@ h1{font-size: 160px;
     color: #329ad6!important;
     padding: 0 !important;
     margin-bottom: -49px;
+   position:sticky;
+    top: 0;
+    z-index: 999;
+
 }
 
 
@@ -126,20 +130,11 @@ footer img{
 
 
 
-@media screen and (max-width:320px){    
+@media screen and (max-width:425px){    
 
     h1{
 
-        font-size: 50px !important;}
-
-
-
-}
-@media screen and (max-width:400px){    
-
-    h1{
-
-        font-size: 50px !important;
+        font-size: 35px !important;
 
     }
 
@@ -155,13 +150,18 @@ footer img{
 
 }
 
-@media screen and (max-width:920px){    
+@media screen and (max-width: 768px){
 
-    h1{
+    
+    .nav-item{font-size: 20px;}
 
-        font-size: 80px;
 
-    }
+}
+
+@media screen and (max-width:1024px){
+
+    h1{font-size:80px;}
+    
 
 }
 

@@ -12,11 +12,11 @@ background-color: rgb(240, 240, 240);
     color: #329ad6!important;
     padding: 0 !important;
     margin-bottom: -49px;
-    border-radius: 0 !important; 
     position:sticky;
     top: 0;
     z-index: 999;
 }
+
 
 .praxe{
 
@@ -25,6 +25,7 @@ background-color: rgb(240, 240, 240);
   font-size: 30px;
   font-weight: 600;
 
+
 }
 
 .praxe:hover{
@@ -32,6 +33,7 @@ background-color: rgb(240, 240, 240);
 
   background-color: #252525 !important;
   color: #EAEAEA;
+
 
 
 }
@@ -55,7 +57,7 @@ li:hover{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size:cover;
-    background-position:unset;
+    background-position:center;
     
     
 
@@ -136,6 +138,9 @@ footer img{
 
 
 }
+
+
+.ikonka{font-size: 20px}
 
 
 
@@ -233,27 +238,19 @@ left: 0;
 
 
     }
+     .nav-item{font-size: 20px;}
 
     .ikonka{font-size: 20px}
 
   }
 
-  @media screen and (max-width:320px){
+   @media screen and (max-width:425px){
 
-    h1{
+    h1{font-size:50px }
 
-        font-size: 50px;
-
-    }
-
-    footer{
+   }
 
 
-      font-size: 15px;
 
 
-    }
-
-    .ikonka{font-size: 20px}
-
-}
+  

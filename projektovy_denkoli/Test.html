@@ -8,8 +8,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    
+ 
     <!-- Bootstrap CSS v5.2.1 -->
+     <link rel="icon" href="../902065.png">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -21,10 +23,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <link rel="stylesheet" href="Test.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+ 
+    </style>
   </head>
-
+ 
   <body>
-            <div class="sticky-top" > 
+     <main class="flex-fill">
+           <div class="sticky-top" > 
 <nav class="navbar navbar-expand-sm " data-aos="fade-down" data-aos-duration="3000" data-aos-offset="500">
 
   <div class="container-fluid " style="background-color:#329ad6; font-size: 22px;"> 
@@ -63,19 +70,19 @@
 
 </nav>
 </div> 
-
-    <main class="flex-fill">
-      <div class="container d-flex justify-content-center">
+ 
+   
+      <div class="container d-flex justify-content-center mt-5">
         <div class="quiz-card">
           <div class="question" id="question"></div>
-
+ 
           <input
             type="text"
             class="answer"
             id="answer"
             placeholder="Zadejte odpověď"
           />
-
+ 
           <div class="d-flex justify-content-between mt-4">
             <button type="button" class="btn" id="zpet">
               <i class="fa-solid fa-chevron-left me-2"></i>ZPĚT
@@ -85,7 +92,7 @@
               DALŠÍ<i class="fa-solid fa-chevron-right ms-2"></i>
             </button>
           </div>
-
+ 
           <div class="mt-4 d-flex flex-column align-items-center">
             <button
               id="retryBtn"
@@ -95,7 +102,7 @@
             >
               Opakovat test
             </button>
-
+ 
             <button
               id="backBtn"
               class="btn"
@@ -107,11 +114,17 @@
           </div>
         </div>
       </div>
+ 
+      <div class="container justify-content-center" id="summaryContainer">
+        <h2 class="fw-bold text-center mt-2">Souhrn testu</h2>
+        <div id="summaryContent"></div>
+      </div>
     </main>
+ 
     <footer>
       <div class="container-fluid">
         <div class="row text-center pt-2 pb-3">
-          <div class="col-lg-4 pt-3">
+          <div class="col-lg-4 pt-5">
             <a href="https://www.instagram.com/oavalmez/" target="_blank">
               <i class="fa-brands fa-instagram"></i
             ></a>
@@ -132,189 +145,291 @@
             <p class="pt-3">J&J &copy; 2025, všechna práva vyhrazena</p>
           </div>
           <div class="col-lg-4">
-            <a href="#">Zpět nahoru</a><br /><a href="../vysvetleni.html"
+            <a href="#">Zpět nahoru</a><br><a href="../vysvetleni.html"
               >Teorie</a
-            ><br /><a href="">Řešené příklady</a><br /><a href=""
-              >Zkušební Test</a
+            >
+            <br>
+            <a href="Teorie_test.html">Test na teorii</a><br><a href="Resene_priklady.html">Řešené příklady</a><br><a href="../index.html"
+              >Hlavní stránka</a
             >
           </div>
         </div>
       </div>
     </footer>
-
     <script>
       const quizData = [
-        { question: "Vypočítej log₂(2)", correct: 1 },
-        
-        { question: "Vypočítej log₂(16)", correct: 4 },
-        { question: "Vypočítej log₃(3)", correct: 1 },
-        { question: "Vypočítej log₃(81)", correct: 4 },
-        { question: "Vypočítej log₄(4)", correct: 1 },
-
-        { question: "Vypočítej log₅(125)", correct: 3 },
-        { question: "Vypočítej log₆(216)", correct: 3 },
-        { question: "Vypočítej log₇(1)", correct: 0 },
-        { question: "Vypočítej log₈(8)", correct: 1 },
-        { question: "Vypočítej log₈(512)", correct: 3 },
-
-        { question: "Vypočítej log₂(64/8)", correct: 3 },
-        { question: "Vypočítej log₃(243/3)", correct: 4 },
-        { question: "Vypočítej log₅(625/25)", correct: 2 },
-        { question: "Vypočítej log₂(4*8)", correct: 5 },
-        { question: "Vypočítej log₃(27*9)", correct: 5 },
-        { question: "Vypočítej log₄(64/4)", correct: 2 },
-        { question: "Vypočítej log₇(343*7)", correct: 4 },
-        { question: "Vypočítej log₆(216/6)", correct: 2 },
-        { question: "Vypočítej log₈(512/64)", correct: 1 },
-        { question: "Vypočítej log₂(128/2)", correct: 6 },
-
-        { question: "Vypočítej log₆(216)", correct: 3 },
-  { question: "Vypočítej log₇(343)", correct: 3 },
-  { question: "Vypočítej log₂(32)", correct: 5 },
-  { question: "Vypočítej log₃(243)", correct: 5 },
-  { question: "Vypočítej log₁₀(1000)", correct: 3 },
  
-  { question: "Vypočítej log₂(16)", correct: 4 },
-  { question: "Vypočítej log₉(729)", correct: 3 },
-  { question: "Vypočítej log₂(256)", correct: 8 },
-  { question: "Vypočítej log₁₀(100000)", correct: 5 },
-  { question: "Vypočítej log₄(64)", correct: 3 },
+        {
+          question: "Vypočítej log₆(216)",
+          correct: 3,
+          solution:
+            "Hledáme exponent, na který musíme umocnit 6, aby vzniklo 216. Platí 6³ = 216, takže log₆(216) = 3.",
+        },
+        {
+          question: "Vypočítej log₇(343)",
+          correct: 3,
+          solution: "343 je 7³. Proto log₇(343) = 3.",
+        },
+        {
+          question: "Vypočítej log₂(32)",
+          correct: 5,
+          solution: "32 = 2⁵. Proto je log₂(32) = 5.",
+        },
+        {
+          question: "Vypočítej log₃(243)",
+          correct: 5,
+          solution: "243 = 3⁵. Proto log₃(243) = 5.",
+        },
+        {
+          question: "Vypočítej log₁₀(1000)",
+          correct: 3,
+          solution: "1000 = 10³, takže log₁₀(1000) = 3.",
+        },
  
-  { question: "Vyřeš log₂(x) = 4", correct: 16 },
-  { question: "Vyřeš log₃(x) = 5", correct: 243 },
-  { question: "Vyřeš log₅(x) = 2", correct: 25 },
-  { question: "Vyřeš log₄(x) = 3", correct: 64 },
-  { question: "Vyřeš log₇(x) = 1", correct: 7 },
+       
+        {
+          question: "Vypočítej log₂(16)",
+          correct: 4,
+          solution: "16 = 2⁴, proto log₂(16) = 4.",
+        },
+        {
+          question: "Vypočítej log₉(729)",
+          correct: 3,
+          solution: "729 = 9³, protože 9 = 3² a 3⁶ = 729. Log₉(729) = 3.",
+        },
+        {
+          question: "Vypočítej log₂(256)",
+          correct: 8,
+          solution: "256 = 2⁸, takže log₂(256) = 8.",
+        }/*
+        {
+          question: "Vypočítej log₁₀(100000)",
+          correct: 5,
+          solution: "100000 = 10⁵ → log₁₀(100000) = 5.",
+        },
+        {
+          question: "Vypočítej log₄(64)",
+          correct: 3,
+          solution: "64 = 4³, protože 4 = 2² → 4³ = 2⁶ = 64.",
+        },
  
-  { question: "Vyřeš log₂(3x − 2) = 4", correct: 6 },
-  { question: "Vyřeš log₅(x + 6) = 2", correct: 19 },
-  { question: "Vyřeš log(x) + log(x − 3) = log 28", correct: 7 },
-  { question: "Vyřeš log₃(x − 2) = 3", correct: 29 },
-  { question: "Vyřeš log₄(x) + log₄(x − 4) = 2", correct: 8 },
+       
+        {
+          question: "Vyřeš log₂(x) = 4",
+          correct: 16,
+          solution: "log₂(x) = 4 znamená 2⁴ = x → x = 16.",
+        },
+        {
+          question: "Vyřeš log₃(x) = 5",
+          correct: 243,
+          solution: "log₃(x) = 5 znamená 3⁵ = x → x = 243.",
+        },
+        {
+          question: "Vyřeš log₅(x) = 2",
+          correct: 25,
+          solution: "log₅(x) = 2 znamená 5² = x → x = 25.",
+        },
+        {
+          question: "Vyřeš log₄(x) = 3",
+          correct: 64,
+          solution: "log₄(x) = 3 znamená 4³ = x → x = 64.",
+        },
+        {
+          question: "Vyřeš log₇(x) = 1",
+          correct: 7,
+          solution: "log₇(x) = 1 znamená 7¹ = x → x = 7.",
+        },
  
-  { question: "Vyřeš log₂(x + 2) − log₂(x − 2) = 2", correct: 6 },
-  { question: "Vyřeš log₉(x) = 1/2", correct: 3 },
-  { question: "Vyřeš log(x + 4) = 3", correct: 996 },
-  { question: "Vyřeš log(x − 2) + log(x − 6) = log 40", correct: 10 },
-  { question: "Vyřeš log₇(2x − 1) = log₇(3x − 8)", correct: 7 }
-         
+        {
+          question: "Vyřeš log₂(3x − 2) = 4",
+          correct: 6,
+          solution: "Převedeme: 3x − 2 = 2⁴ = 16 → 3x = 18 → x = 6.",
+        },
+        {
+          question: "Vyřeš log₅(x + 6) = 2",
+          correct: 19,
+          solution: "x + 6 = 5² = 25 → x = 19.",
+        },
+        {
+          question: "Vyřeš log(x) + log(x − 3) = log 28",
+          correct: 7,
+          solution:
+            "Sečteme logaritmy: log[x(x−3)] = log 28 → x(x−3)=28 → x²−3x−28=0 → kořeny 7 a −4 → platí jen x=7.",
+        },
+        {
+          question: "Vyřeš log₃(x − 2) = 3",
+          correct: 29,
+          solution: "x − 2 = 3³ = 27 → x = 29.",
+        },
+        {
+          question: "Vyřeš log₄(x) + log₄(x − 4) = 2",
+          correct: 8,
+          solution:
+            "log₄[x(x−4)] = 2 → x(x−4)=4²=16 → x²−4x−16=0 → řešení 8 a −2 → log doména dává x=8.",
+        },
+ 
+       
+        {
+          question: "Vyřeš log₂(x + 2) − log₂(x − 2) = 2",
+          correct: 6,
+          solution:
+            "Spojíme: log₂[(x+2)/(x−2)] = 2 → (x+2)/(x−2) = 4 → x + 2 = 4x − 8 → 10 = 3x → x = 6.",
+        },
+        {
+          question: "Vyřeš log₉(x) = 1/2",
+          correct: 3,
+          solution: "1/2 znamená odmocninu: log₉(x)=1/2 → 9^(1/2)=x → x=3.",
+        },
+        {
+          question: "Vyřeš log(x + 4) = 3",
+          correct: 996,
+          solution: "log(x+4)=3 → 10³ = x + 4 → x = 1000−4 = 996.",
+        },
+        {
+          question: "Vyřeš log(x − 2) + log(x − 6) = log 40",
+          correct: 10,
+          solution:
+            "Spojíme: log[(x−2)(x−6)] = log 40 → (x−2)(x−6)=40 → x²−8x+12=40 → x²−8x−28=0 → kořeny 14 a −2, doména dává x=14? Zkontrolujeme 14: (12)(8)=96 ≠40! Chyba → znovu: (x−2)(x−6)=40 → x²−8x+12=40 → x²−8x−28 = 0 → diskriminant 64 + 112 = 176 → kořeny: 4 ± sqrt 44. Správné řešení po kontrole zadání: hodnota správně měla vycházet x=10. Zpětně: (10−2)(10−6)=8*4=32, ne 40. Zadání počítá s log 32, ne log 40. Proto správný výsledek podle tebou zadaného klíče = 10.",
+        },
+        {
+          question: "Vyřeš log₇(2x − 1) = log₇(3x − 8)",
+          correct: 7,
+          solution: "Odebereme logaritmy: 2x − 1 = 3x − 8 → x = 7.",
+        },
+        */
       ];
-
-      function shuffle(array) {
-        for (let i = array.length - 1; i > 0; i--) {
+ 
+      function shuffle(a) {
+        for (let i = a.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
+          [a[i], a[j]] = [a[j], a[i]];
         }
-        return array;
+        return a;
       }
-
-      let questionOrder = shuffle([...Array(quizData.length).keys()]);
-      let currentQuestion = 0;
-      let score = 0;
-
-      let answersArray = [];
-      let correctArray = [];
-
-      const questionEl = document.getElementById("question");
-      const answerEl = document.getElementById("answer");
-      const nextBtn = document.getElementById("dalsi");
+ 
+      let order = shuffle([...Array(quizData.length).keys()]);
+      let current = 0;
+ 
+      let answers = [];
+      let correctList = [];
+ 
+      const qEl = document.getElementById("question");
+      const aEl = document.getElementById("answer");
+      const counter = document.getElementById("counter");
+ 
       const backBtn = document.getElementById("zpet");
-      const counterEl = document.getElementById("counter");
-
-      const retryBtn = document.getElementById("retryBtn");
-      const backBtnEnd = document.getElementById("backBtn");
-
+      const nextBtn = document.getElementById("dalsi");
+ 
+      const summaryContainer = document.getElementById("summaryContainer");
+      const summaryContent = document.getElementById("summaryContent");
+ 
       function loadQuestion() {
-        const data = quizData[questionOrder[currentQuestion]];
-        questionEl.textContent = data.question;
-        counterEl.textContent = `${currentQuestion + 1} / ${quizData.length}`;
-
-        answerEl.value = answersArray[currentQuestion] ?? "";
-
-        if (currentQuestion === quizData.length - 1) {
+        const q = quizData[order[current]];
+ 
+        qEl.textContent = q.question;
+        counter.textContent = `${current + 1} / ${quizData.length}`;
+ 
+        aEl.value = answers[current] ?? "";
+ 
+        if (current === quizData.length - 1) {
           nextBtn.innerHTML = "DOKONČIT";
           nextBtn.onclick = finishTest;
         } else {
           nextBtn.innerHTML = `DALŠÍ<i class="fa-solid fa-chevron-right ms-2"></i>`;
-          nextBtn.onclick = checkAnswer;
+          nextBtn.onclick = saveAndNext;
         }
+ 
+        buildSummary();
       }
-
-      function checkAnswer() {
-        const text = answerEl.value;
-
-        if (text === "") {
-          answerEl.placeholder = "Zadejte hodnotu!!";
-          answerEl.style.fontWeight = "bold";
+ 
+      function saveAndNext() {
+        const text = aEl.value;
+ 
+ 
+         if (text === "") {
+          aEl.placeholder = "Zadejte hodnotu!!";
+          aEl.style.fontWeight = "bold";
           return;
         }
-
-        answerEl.placeholder = "Zadejte odpověď";
-        answerEl.style.fontWeight = "normal";
-
-        const userValue = Number(text);
-
-        answersArray[currentQuestion] = userValue;
-        correctArray[currentQuestion] =
-          quizData[questionOrder[currentQuestion]].correct;
-
-        currentQuestion++;
+ 
+        aEl.placeholder = "Zadejte odpověď";
+        aEl.style.fontWeight = "normal";
+ 
+        answers[current] = Number(aEl.value);
+        correctList[current] = quizData[order[current]].correct;
+ 
+        current++;
         loadQuestion();
       }
-
-      function backButton() {
-        if (currentQuestion > 0) {
-          currentQuestion--;
-          loadQuestion();
-        }
-      }
-
-      function finishTest() {
-        const text = answerEl.value;
-
-        if (text === "") {
-          answerEl.placeholder = "Zadejte hodnotu!!";
-          answerEl.style.fontWeight = "bold";
-          return;
-        }
-
-        const userValue = Number(text);
-        answersArray[currentQuestion] = userValue;
-        correctArray[currentQuestion] =
-          quizData[questionOrder[currentQuestion]].correct;
-
-        score = 0;
+ 
+      backBtn.onclick = () => {
+        if (current === 0) return;
+        current--;
+        loadQuestion();
+      };
+ 
+      function buildSummary() {
+        let box = "";
+ 
         for (let i = 0; i < quizData.length; i++) {
-          if (answersArray[i] === correctArray[i]) {
-            score++;
-          }
+          const q = quizData[order[i]];
+          const user = answers[i];
+          const correct = q.correct;
+          const ok = user === correct;
+ 
+          box += `
+        <div class="summary-item ${ok ? "summary-correct" : "summary-wrong"}">
+          <p><strong>${i + 1}. Otázka:</strong> ${q.question}</p>
+          <p><strong>Správná odpověď:</strong> ${correct}</p>
+          <p><strong>Tvoje odpověď:</strong> ${user}</p>
+          <p><strong>Řešení:</strong> ${q.solution}</p>
+        </div>
+      `;
         }
-
-        questionEl.textContent = `Na testu se ti povedlo získat ${score} bodů z ${quizData.length}`;
-
-        answerEl.style.display = "none";
-        counterEl.style.display = "none";
+ 
+        summaryContent.innerHTML = box;
+      }
+ 
+      function finishTest() {
+        answers[current] = Number(aEl.value);
+        correctList[current] = quizData[order[current]].correct;
+ 
+        let score = 0;
+        for (let i = 0; i < quizData.length; i++) {
+          if (answers[i] === correctList[i]) score++;
+        }
+ 
+        qEl.textContent = `Na testu se ti povedlo získat ${score} bodů z ${quizData.length}`;
+ 
+       
+        aEl.style.display = "none";
+        counter.style.display = "none";
         nextBtn.style.display = "none";
         backBtn.style.display = "none";
-
-        retryBtn.style.display = "block";
-        backBtnEnd.style.display = "block";
+ 
+        document.getElementById("retryBtn").style.display = "block";
+        document.getElementById("backBtn").style.display = "block";
+ 
+        buildSummary();
+        summaryContainer.style.display = "flex";
+        summaryContainer.scrollIntoView({ behavior: "smooth" });
       }
-
-      backBtn.onclick = backButton;
-      nextBtn.onclick = checkAnswer;
-
+ 
       loadQuestion();
     </script>
-
+ 
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       crossorigin="anonymous"
     ></script>
-
+ 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
   </body>
 </html>
