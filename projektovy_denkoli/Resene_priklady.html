@@ -129,7 +129,7 @@
           correct: 2,
           solution: "4 = 2², takže log₂(4) = 2.",
         },
-        {
+       /* {
           question: "Vypočítej log₃(9)",
           correct: 2,
           solution: "9 = 3², takže log₃(9) = 2.",
@@ -194,7 +194,7 @@
           question: "Vypočítej log₃(81)",
           correct: 4,
           solution: "81 = 3⁴, takže log₃(81) = 4.",
-        },
+        },*/
         {
           question: "Vypočítej log₁₀(100)",
           correct: 2,
@@ -205,7 +205,7 @@
           correct: 3,
           solution: "8 = 2³, takže log₂(8) = 3.",
         },
-        {
+    /*    {
           question: "Vypočítej log₉(81)",
           correct: 2,
           solution: "81 = 9², takže log₉(81) = 2.",
@@ -219,7 +219,7 @@
           question: "Vypočítej log₁₀(10000)",
           correct: 4,
           solution: "10000 = 10⁴, takže log₁₀(10000) = 4.",
-        },
+        },*/
         {
           question: "Vypočítej log₃(9) + log₃(3)",
           correct: 3,
@@ -230,7 +230,7 @@
           correct: 5,
           solution: "log₂(4)=2 a log₂(8)=3 → 2+3=5.",
         },
-        {
+      /*  {
           question: "Vypočítej log₅(25) + log₅(5)",
           correct: 3,
           solution: "log₅(25)=2 a log₅(5)=1 → 2+1=3.",
@@ -260,7 +260,7 @@
           question: "Vypočítej log₇(49)",
           correct: 2,
           solution: "49 = 7², takže log₇(49) = 2.",
-        },
+        },*/
         {
           question: "Vypočítej log₂(1)",
           correct: 0,
@@ -271,7 +271,7 @@
           correct: 4,
           solution: "81 = 3⁴, takže log₃(81) = 4.",
         },
-        {
+        /*{
           question: "Vypočítej log₁₀(100)",
           correct: 2,
           solution: "100 = 10², takže log₁₀(100) = 2.",
@@ -316,7 +316,7 @@
           question: "Vyřeš rovnici: log₄(x) = 2",
           correct: 16,
           solution: "4² = 16, takže x = 16.",
-        },
+        },*/
         {
           question: "Vyřeš log₂(2x − 4) = 3",
           correct: 6,
@@ -338,7 +338,7 @@
             "Sečteme logaritmy: log[x(x − 2)] = log 15 → tedy x(x − 2) = 15. Kvadratická rovnice dává kořeny 5 a −3, ale platí jen x > 2, takže x = 5.",
         },
  
-        {
+       /* {
           question: "Vyřeš log₃(x − 1) = 2",
           correct: 10,
           solution:
@@ -403,7 +403,7 @@
           correct: 10,
           solution:
             "2·log(x) = log(x²), tedy log(x²) = 2. Z toho x² = 100 → x = 10 (kladná podmínka).",
-        },
+        },*/
  
         {
           question: "Vyřeš 3·log₁₀(x) = log₁₀(1000)",
@@ -498,7 +498,7 @@
       }
       function showFinalScore() {
         questionEl.textContent =
-          "Hotovo! 🎉 Tvé skóre: " + score + " / " + quizData.length;
+          "Hotovo! Tvé skóre: " + score + " / " + quizData.length;
 
         answerEl.style.display = "none";
         sendBtn.style.display = "none";
