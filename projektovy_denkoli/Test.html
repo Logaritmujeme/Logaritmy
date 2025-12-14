@@ -77,7 +77,9 @@
           <div class="question" id="question"></div>
  
           <input
-            type="text"
+            type="number"
+            min="0"
+            step="0.5"
             class="answer"
             id="answer"
             placeholder="Zadejte odpověď"
@@ -256,11 +258,11 @@
           solution:
             "Sečteme logaritmy: log[x(x−3)] = log 28 → x(x−3)=28 → x²−3x−28=0 → kořeny 7 a −4 → platí jen x=7.",
         },
-     /*   {
+        {
           question: "Vyřeš log₃(x − 2) = 3",
           correct: 29,
           solution: "x − 2 = 3³ = 27 → x = 29.",
-        },*/
+        },
         {
           question: "Vyřeš log₄(x) + log₄(x − 4) = 2",
           correct: 8,
@@ -275,12 +277,12 @@
           solution:
             "Spojíme: log₂[(x+2)/(x−2)] = 2 → (x+2)/(x−2) = 4 → x + 2 = 4x − 8 → 10 = 3x → x = 6.",
         },
-       /* {
+        {
           question: "Vyřeš log₉(x) = 1/2",
           correct: 3,
           solution: "1/2 znamená odmocninu: log₉(x)=1/2 → 9^(1/2)=x → x=3.",
         },
-        {
+       /* {
           question: "Vyřeš log(x + 4) = 3",
           correct: 996,
           solution: "log(x+4)=3 → 10³ = x + 4 → x = 1000−4 = 996.",
@@ -289,7 +291,7 @@
           question: "Vyřeš log(x − 2) + log(x − 6) = log 40",
           correct: 10,
           solution:
-            "Spojíme: log[(x−2)(x−6)] = log 40 → (x−2)(x−6)=40 → x²−8x+12=40 → x²−8x−28=0 → kořeny 14 a −2, doména dává x=14? Zkontrolujeme 14: (12)(8)=96 ≠40! Chyba → znovu: (x−2)(x−6)=40 → x²−8x+12=40 → x²−8x−28 = 0 → diskriminant 64 + 112 = 176 → kořeny: 4 ± sqrt 44. Správné řešení po kontrole zadání: hodnota správně měla vycházet x=10. Zpětně: (10−2)(10−6)=8*4=32, ne 40. Zadání počítá s log 32, ne log 40. Proto správný výsledek podle tebou zadaného klíče = 10.",
+            "Spojíme: log[(x−2)(x−6)] = log 40 → (x−2)(x−6)=40 → x²−8x+12=40 → x²−8x−28=0 → kořeny 14 a −2, doména dává x=14? Zkontrolujeme 14: (12)(8)=96 ≠40! Chyba → znovu: (x−2)(x−6)=40 → x²−8x+12=40 → x²−8x−28 = 0 → diskriminant 64 + 112 = 176 → kořeny: 4 ± odmocnina ze 44. Správné řešení po kontrole zadání: hodnota správně měla vycházet x=10. Zpětně: (10−2)(10−6)=8*4=32, ne 40. Zadání počítá s log 32, ne log 40. Proto správný výsledek podle tebou zadaného klíče = 10.",
         },
         {
           question: "Vyřeš log₇(2x − 1) = log₇(3x − 8)",
